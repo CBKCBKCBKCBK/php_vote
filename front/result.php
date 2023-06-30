@@ -2,8 +2,9 @@
 
 
 $id=$_GET['id'];
-$options=$pdo->query("select * from `options` where `subject_id`=$id")->fetchAll(PDO::FETCH_ASSOC);
-$subject=$pdo->query("select * from `topics` where `id`=$id")->fetch(PDO::FETCH_ASSOC);
+$options=$Option->all(['id'=>$id]);
+// $options=$pdo->query("select * from `options` where `subject_id`=$id")->fetchAll(PDO::FETCH_ASSOC);
+$subject=$Topic->find($id);
 
 ?>
 <h1>投票結果</h1>
